@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Form -->
+    <div class="container">
+      <br>
+      <br>
+      <form class="shadow p3" action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="keyword"></label>
+          <input
+            type="text"
+            class="form-control"
+            name="keyword"
+            id="keyword"
+            placeholder="type a single keyword"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <br />
+      <br />
+    </div>
+    <!-- Trends -->
+
+    {% if tags %}
+    <div class="container">
+      <h5>This week's trends</h5>
+      <div class="d-flex">
+        <ul class="list-group list-group-horizontal-lg">
+          {% for tag in tags %}
+            <li class="list-group-item">{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>      
+    </div>
+    <br />
+    <br />
+    {% endif %}
+
+    <!-- New and Top Lists -->
+    <div class="container">
+      <div class="row">
+
+        {% if new_list %}
+          <div class="col-sm">
+            <div class="shadow p1">
+              <h2 class="text-center">New List</h2>
+            </div>            
+            {% for NewlistItem in new_list %}
+              <ol class="list-group">
+                <li class="list-group-item">
+                  <a href="{% url 'NewlistItem' id=NewlistItem.id %}" target="_blank">
+                    <p>{{ NewlistItem.link }}</p>
+                  </a>
+                </li>
+              </ol>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if new_list %}
+          <div class="col-sm">
+            <div class="shadow p1">
+              <h2 class="text-center">Top List</h2>
+            </div>
+            {% for ToplistItem in top_list %}
+              <ol class="list-group">
+                <li class="list-group-item">
+                  <a href="{% url 'ToplistItem' id=ToplistItem.id %}" target="blank">
+                    <p>{{ ToplistItem.link }}</p>
+                  </a>
+                </li>
+              </ol>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=fcfe3af826d7">
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary.css?v=8e9a2df9309e">
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/Channels/channels.css?v=47a5e0f03c81">
+    <link rel="stylesheet" href="https://cdn.sstatic.net/clc/styles/clc.min.css?v=86ebc1aa2ac9" type="text/css">
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{{ link }}" target="_blank" class="text-center">
+        <h1>Main page of the question</h1>
+    </a>    
+    <br>
+    <div class="container text-ceter shadow p3">
+        {{ mainQ | safe }}
+    </div>
+    <div class="container text-ceter shadow p3">
+        {{ thread | safe }}
+    </div>
+</body>
+</html>
