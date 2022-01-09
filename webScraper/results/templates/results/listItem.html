@@ -19,15 +19,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <a href="{{ link }}" target="_blank" class="text-center">
-        <h1>Main page of the question</h1>
-    </a>    
+<body>        
     <br>
-    <div class="container text-ceter shadow p3">
+    <div class="container shadow p3 w-75">
+        <a href="{{ link }}" target="_blank">
+            <h1>{{ title }}</h1>
+        </a>
+    </div>
+    <br>
+    <div class="container text-ceter shadow p3 w-75">
         {{ mainQ | safe }}
     </div>
-    <div class="container text-ceter shadow p3">
+    <br>
+    <div class="container text-ceter shadow p3 w-75">
         {{ thread | safe }}
     </div>
 </body>

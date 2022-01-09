@@ -10,30 +10,39 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
   </head>
   <body>
-    <!-- Form -->
-    <div class="container">
-      <br>
-      <br>
-      <form class="shadow p3" action="{% url 'index' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="keyword"></label>
-          <input
-            type="text"
-            class="form-control"
-            name="keyword"
-            id="keyword"
-            placeholder="type a single keyword"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <br />
-      <br />
+    <br>
+    <div class="container text-center">
+      <h1>stackoverflow scraper</h1>
     </div>
+    <!-- Form -->
+    <br>
+    <br>
+    <div class="container text-center shadow p3 w-50">
+      <br>
+      <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <div class="row g-3">
+          <div class="col-md-10">
+            <input
+                  type="text"
+                  class="form-control"
+                  name="keyword"
+                  placeholder="type a single keyword"
+            />
+          </div>      
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+      <br>
+    </div>
+    <br />
+    <br />
     <!-- Trends -->
 
     {% if tags %}
@@ -56,14 +65,14 @@
       <div class="row">
 
         {% if new_list %}
-          <div class="col-sm">
+          <div class="col-md-6">
             <div class="shadow p1">
               <h2 class="text-center">New List</h2>
-            </div>            
+            </div>
             {% for NewlistItem in new_list %}
               <ol class="list-group">
                 <li class="list-group-item">
-                  <a href="{% url 'NewlistItem' id=NewlistItem.id %}" target="_blank">
+                  <a href="{% url 'NewlistItem' id=NewlistItem.id %}" target="blank">
                     <p>{{ NewlistItem.link }}</p>
                   </a>
                 </li>
@@ -72,8 +81,8 @@
           </div>
         {% endif %}
 
-        {% if new_list %}
-          <div class="col-sm">
+        {% if top_list %}
+          <div class="col-md-6">
             <div class="shadow p1">
               <h2 class="text-center">Top List</h2>
             </div>
