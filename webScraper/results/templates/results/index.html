@@ -88,10 +88,11 @@
             </div>
             {% for ToplistItem in top_list %}
               <ol class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                   <a href="{% url 'ToplistItem' id=ToplistItem.id %}" target="blank">
-                    <p>{{ ToplistItem.link }}</p>
+                    <p>{{ ToplistItem.link }}</p>                                      
                   </a>
+                  <span class="badge badge-primary badge-pill">{{ToplistItem.vote}}</span>
                 </li>
               </ol>
             {% endfor %}
