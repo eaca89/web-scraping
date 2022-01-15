@@ -11,13 +11,14 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+    <title>Search</title>
   </head>
   <body>
     <br>
     <div class="container text-center">
       <h1>stackoverflow scraper</h1>
     </div>
+    
     <!-- Form -->
     <br>
     <br>
@@ -43,8 +44,8 @@
     </div>
     <br />
     <br />
+    
     <!-- Trends -->
-
     {% if tags %}
     <div class="container">
       <h5>This week's trends</h5>
@@ -72,7 +73,7 @@
             {% for NewlistItem in new_list %}
               <ol class="list-group">
                 <li class="list-group-item">
-                  <a href="{% url 'NewlistItem' id=NewlistItem.id %}" target="blank">
+                  <a href="{% url 'ShowItems' 'N' NewlistItem.id %}" target="blank">
                     <p>{{ NewlistItem.link }}</p>
                   </a>
                 </li>
@@ -89,7 +90,7 @@
             {% for ToplistItem in top_list %}
               <ol class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <a href="{% url 'ToplistItem' id=ToplistItem.id %}" target="blank">
+                  <a href="{% url 'ShowItems' 'T' ToplistItem.id %}" target="blank">
                     <p>{{ ToplistItem.link }}</p>                                      
                   </a>
                   <span class="badge badge-primary badge-pill">{{ToplistItem.vote}}</span>
@@ -99,7 +100,6 @@
           </div>
         {% endif %}
       </div>
-    </div>
-  
+    </div>  
   </body>
 </html>
